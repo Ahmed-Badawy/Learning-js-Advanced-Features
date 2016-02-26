@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		body{
+			font-size: 200%;
+		}
+	</style>
+</head>
+<body class='container'>
+
+<h1>Array.reduce <small>the strongest way to control an array itiration</small></h1>
+
+<pre>
+new_array = array.reduce( function( accumulator , array_item_value , index , given_array ){
+   //code;
+} , accumulator_initual_value );
+</pre>
+
+
+<pre>
+tags_array = array.reduce(function(acc,value){
+	value.tags.forEach(function(tag){
+		if(acc.indexOf(tag) === -1) acc.push(tag); //if unique add tag
+	});
+},[])	
+</pre>
+
+<ul>
+	<li>array.reduceRight // this will itirate over the array backwords. so it will begin from the last item & then work it's way down to the first array item</li>
+</ul>
+
+<hr>
+
+
+
+<h1>Array.map: <small>every map value is saved in the same spot after processing it's value</small></h1>
+<pre>
+new_array = array.map( function(array_item){
+	return array_item * 2; //double the array elements
+});
+</pre>
+<hr>
+
+
+
+<h1>Array.filter: <small>filter an array with returning true or false</small></h1>
+<pre>
+new_array = array.filter( function(array_item){ 
+   	if(//code) return true;
+	return false;
+});
+</pre>
+<hr>
+
+
+<script type="text/javascript">
+	var data = [1,4,2,2,3];
+	var accumulator_initual_value = 1;
+
+	var output = data.reduce(function(accumulator, array_item_value , index , given_array){
+		if(index==0){ 
+			console.log("index is: ",index);
+			console.log("given_array is: ",given_array);
+		}
+		return accumulator * array_item_value;
+	}, accumulator_initual_value );
+
+	console.log("Sum of array is: ",output);
+</script>
+
+
+
+
+<script type="text/javascript">
+	var votes = [
+		"angular",
+		"react",
+		"vanilla",
+		"angular",
+		"angular",
+		"emper",
+		"emper"
+	];
+
+	var accumulator_initual_value = [];
+	var output = votes.reduce(function(accumulator, array_item_value){
+		if(accumulator[array_item_value]) accumulator[array_item_value]++; 
+		else accumulator[array_item_value]=1;
+		return accumulator;
+	}, accumulator_initual_value );
+
+	console.log("Votes are: ",output);
+</script>
+
+
+<script type="text/javascript">
+//you also can reduce an array with .map & .filter
+//you can messure time of run with the console.time && console.timeEnd;
+data = [1,4,2,2,3];
+
+
+console.time("timer1");
+//Map EX:
+var Mapped_data = data.map(function(array_item){
+	return array_item * 2;
+})
+console.log("Map Example: "+Mapped_data);
+console.timeEnd("timer1");
+
+
+console.time("timer2");
+//Filter EX:
+var Filtered_data = data.filter(function(array_item){//filter an array with returning true or false; 
+	if(array_item % 2 == 0) return true;
+	return false;
+})
+console.log("Filter Array for even numbers: "+Filtered_data);
+console.timeEnd("timer2");
+
+
+</script>
+
+
+
+
+
+
+
+<h1>Array.concat: <small>merge arrays & add to array</small></h1>
+<pre>
+array.concat(3,4,5,'string text',undefined) ; //concat can merge any thing into an array
+array.concat([1,2,3]); //can be used to flatten/merge arrays together (if the arrays are one level deep)
+</pre>
+<hr>
+
+
+<h1>Array.join & Array.split: <small>php's implode & explode</small></h1>
+<pre>
+array.join(' - '); //join an array into a string
+string.split('.'); //split a string into an array
+</pre>
+<hr>
+
+
+
+<h1>array.sort(fn(value1,value2){}) <small>sorts the values of an array</small></h1>
+<pre>
+//fn can be used to sort the items:  if +(positive) result then give priority else dont give priority. EX:-
+[1,20,2,10].sort( (a,b)=>a-b ); //that means return the firstNum-secondNum if + give priority
+</pre>
+<hr>
+
+
+
+<h1>array.some(fn) <small>Great for runing a query on an array to get yes or no answer</small></h1>
+<pre>
+//check if 6 is a value in the array
+	ans = array.some( x => (x==6) ); //returns true or false answers
+</pre>
+<hr>
+
+
+
+<h3>array.indexOf('item') <small>checks if array has a value</small></h3>
+<h3>array.slice(start,end) <small>slice from start to end & returns the new array</small></h3>
+<pre>
+// negative values can be used to indicate the relationship to the placement.EX:
+	array.slice(0,-1); //means from the start to the (end-1). that's effectively removed the last value from the array.
+</pre>
+<hr>
+
+
+</body>
+</html>
