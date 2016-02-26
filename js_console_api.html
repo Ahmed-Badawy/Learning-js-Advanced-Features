@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+</head>
+<body class='container'>
+
+<h1>Console API (the important ones) <a href="https://developer.chrome.com/devtools/docs/console-api">The API</a></h1>
+
+
+
+<h3>console.clear() <small>clears the console</small></h3>
+<h3>console.count('label') <small>counts the number of the occurance of a code</small></h3>
+<h3>console.log('label',value_to_console)</h3>
+
+<h3>console.dir(obj or node) <small>Prints a JavaScript representation of the specified object</small></h3>
+
+
+<hr>
+<h3>console.error , console.info ,console.warn <small>similar to console.log()</small></h3>
+<pre>
+	console.log("User %s has %d points", userName, userPoints);
+</pre>
+<table class='table'><thead><tr><th>Format Specifier</th><th>Description</th></tr></thead><tbody><tr><td><code>%s</code></td><td>Formats the value as a string.</td></tr><tr><td><code>%d</code> or <code>%i</code></td><td>Formats the value as an integer.</td></tr><tr><td><code>%f</code></td><td>Formats the value as a floating point value.</td></tr><tr><td><code>%o</code></td><td>Formats the value as an expandable DOM element (as in the Elements panel).</td></tr><tr><td><code>%O</code></td><td>Formats the value as an expandable JavaScript object.</td></tr><tr><td><code>%c</code></td><td>Formats the output string according to CSS styles you provide.</td></tr></tbody></table>
+
+<hr>
+
+
+<h3>console.group() - console.groupCollapsed() -  console.groupEnd()<small>groups a list of consoles in a subgroup. EX: </small></h3>
+<pre>
+	console.group("Authenticating user '%s'", user);
+	console.log("User authenticated");
+	console.groupEnd();
+</pre>
+<img src="nestedgroup-api.png">
+<hr>
+
+
+<h3>console.time(label) , console.time(label) <small>benchmark a code block</small></h3>
+
+
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
